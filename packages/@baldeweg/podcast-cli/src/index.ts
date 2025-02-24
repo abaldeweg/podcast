@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { createNetworkDirectory } from './network';
+import { createNetwork } from './network';
 import { createPodcastDirectory } from './podcast';
 import { createEpisodeDirectory } from './episode';
 
@@ -12,9 +12,11 @@ program
   .description('CLI to manage podcasts')
 
 program
-  .command('network create')
+  .command('network')
+  .description('Manage networks')
+  .command('create <name>')
   .description('Create a network directory')
-  .action(createNetworkDirectory);
+  .action((name) => createNetwork(name));
 
 program
   .command('podcast create')
