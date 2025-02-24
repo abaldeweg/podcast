@@ -2,13 +2,17 @@
 
 import { Command } from 'commander';
 import { mkdirSync } from 'fs';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 const program = new Command();
+
+const packageJson = JSON.parse(readFileSync(join(__dirname, '../package.json'), 'utf-8'));
 
 program
   .name('podcast-cli')
   .description('CLI to manage podcasts')
-  .version('1.0.0');
+  .version(packageJson.version);
 
 program
   .command('network create')
