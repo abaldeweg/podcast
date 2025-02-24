@@ -3,7 +3,7 @@
 import { Command } from 'commander';
 import { createNetwork } from './network';
 import { createPodcast } from './podcast';
-import { createEpisodeDirectory } from './episode';
+import { createEpisode } from './episode';
 
 const program = new Command();
 
@@ -26,8 +26,10 @@ program
   .action((name) => createPodcast(name));
 
 program
-  .command('episode create')
+  .command('episode')
+  .description('Manage episodes')
+  .command('create <name>')
   .description('Create an episode directory')
-  .action(createEpisodeDirectory);
+  .action((name) => createEpisode(name));
 
 program.parse(process.argv);
