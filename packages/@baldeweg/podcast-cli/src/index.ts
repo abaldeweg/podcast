@@ -2,6 +2,7 @@
 
 import { Command } from 'commander';
 import { createNetworkDirectory } from './network';
+import { createPodcastDirectory } from './podcast';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -18,5 +19,10 @@ program
   .command('network create')
   .description('Create a network directory')
   .action(createNetworkDirectory);
+
+program
+  .command('podcast create')
+  .description('Create a podcast directory')
+  .action(createPodcastDirectory);
 
 program.parse(process.argv);
