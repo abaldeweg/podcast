@@ -2,7 +2,7 @@
 
 import { Command } from 'commander';
 import { createNetwork } from './network';
-import { createPodcastDirectory } from './podcast';
+import { createPodcast } from './podcast';
 import { createEpisodeDirectory } from './episode';
 
 const program = new Command();
@@ -19,9 +19,11 @@ program
   .action((name) => createNetwork(name));
 
 program
-  .command('podcast create')
+  .command('podcast')
+  .description('Manage podcasts')
+  .command('create <name>')
   .description('Create a podcast directory')
-  .action(createPodcastDirectory);
+  .action((name) => createPodcast(name));
 
 program
   .command('episode create')
