@@ -12,13 +12,13 @@ importers:
         specifier: 3.5.13
         version: 3.5.13(typescript@5.7.3)
 
-  packages/lib-ts:
+  packages/@baldeweg/podcast-cli:
     dependencies:
       '@types/commander':
-        specifier: ^2.12.5
+        specifier: 2.12.5
         version: 2.12.5
       commander:
-        specifier: ^13.1.0
+        specifier: 13.1.0
         version: 13.1.0
     devDependencies:
       '@types/jest':

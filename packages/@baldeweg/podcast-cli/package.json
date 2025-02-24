@@ -1,5 +1,5 @@
 {
-  "name": "podcast-cli",
+  "name": "@baldeweg/podcast-cli",
   "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
