@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { mkdirSync } from 'fs';
+import { createNetworkDirectory } from './network';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -17,10 +17,6 @@ program
 program
   .command('network create')
   .description('Create a network directory')
-  .action(() => {
-    const dirName = 'network';
-    mkdirSync(dirName);
-    console.log(`Directory '${dirName}' created successfully.`);
-  });
+  .action(createNetworkDirectory);
 
 program.parse(process.argv);
