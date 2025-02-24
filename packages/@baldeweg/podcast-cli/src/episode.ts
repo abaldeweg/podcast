@@ -4,8 +4,8 @@ import yaml from 'yaml';
 /**
  * Create an episode
  */
-const createEpisode = (name = 'episode') => {
-  mkdir(name);
+const createEpisode = async (name = 'episode') => {
+  await mkdir(name);
 
   const content = yaml.stringify({ "name": name, "description": "Description" });
 
@@ -14,7 +14,7 @@ const createEpisode = (name = 'episode') => {
     { path: `${name}/shownotes.md`, content: `# ${name}\n` }
   ];
 
-  files.forEach(file => writeFile(file.path, file.content));
+  await Promise.all(files.map(file => writeFile(file.path, file.content)));
 
   console.log(`\x1b[32mEpisode '${name}' created\x1b[0m`);
 }
