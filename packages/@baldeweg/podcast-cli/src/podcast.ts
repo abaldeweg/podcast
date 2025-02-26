@@ -9,12 +9,12 @@ const createPodcast = async (name = 'podcast') => {
   const slugifiedName = slug(name);
 
   try {
-      await access(slugifiedName);
-      console.log(`\x1b[31mPodcast '${name}' already exists.\x1b[0m`);
-      return;
-    } catch (error) {
-      // do nothing
-    }
+    await access(slugifiedName);
+    console.log(`\x1b[31mPodcast '${name}' already exists.\x1b[0m`);
+    return;
+  } catch (error) {
+    // do nothing
+  }
 
   await mkdir(slugifiedName);
 
