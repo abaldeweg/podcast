@@ -5,9 +5,11 @@ import yaml from 'yaml';
  * Create a network
  */
 const createNetwork = async (name = 'network') => {
-  await mkdir(name);
+  const slug = (await import('slug')).default;
+  const slugifiedName = slug(name);
+  await mkdir(slugifiedName);
 
-  const filePath = `${name}/network.yaml`;
+  const filePath = `${slugifiedName}/network.yaml`;
   const content = yaml.stringify({ "name": name });
   await writeFile(filePath, content);
 

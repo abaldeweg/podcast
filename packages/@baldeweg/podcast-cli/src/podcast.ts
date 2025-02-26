@@ -5,9 +5,11 @@ import yaml from 'yaml';
  * Create a podcast
  */
 const createPodcast = async (name = 'podcast') => {
-  await mkdir(name);
+  const slug = (await import('slug')).default;
+  const slugifiedName = slug(name);
+  await mkdir(slugifiedName);
 
-  const filePath = `${name}/podcast.yaml`;
+  const filePath = `${slugifiedName}/podcast.yaml`;
   const content = yaml.stringify({ "name": name, "description": "Description" });
   await writeFile(filePath, content);
 
