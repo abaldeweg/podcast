@@ -15,7 +15,7 @@
     "slug": "^10.0.0",
     "ts-jest": "29.3.0",
     "typescript": "5.8.2",
-    "yaml": "2.7.0"
+    "yaml": "2.7.1"
   },
   "bin": {
     "podcast-cli": "./packages/lib-ts/src/index.ts"
